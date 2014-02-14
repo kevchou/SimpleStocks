@@ -8,4 +8,4 @@ Retrieves data from Yahoo as a .CSV file. More information about the API can be 
 
 ![Imgur](http://i.imgur.com/pysjKeM.png?1)
 
-![Imgur](http://i.imgur.com/Bxsnpo6)
+![Imgur](http://i.imgur.com/Bxsnpo6.png?1)
