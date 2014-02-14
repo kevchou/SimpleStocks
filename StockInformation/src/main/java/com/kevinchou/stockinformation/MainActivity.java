@@ -106,7 +106,7 @@ public class MainActivity extends FragmentActivity {
 
             } catch (Exception e) {
 
-                Log.d("ERROR", e.toString());
+                Log.d("YAHOO_ERROR", e.toString());
 
             }
 

@@ -10,12 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.kevinchou.stockinformation.StockPage.KeyStatsFragment;
 import com.kevinchou.stockinformation.StockPage.PriceChartFragment;
 import com.kevinchou.stockinformation.StockPage.PriceInfoFragment;
 
+/** This is the main stock page. Displays company name, price, and price change. Also uses a
+ * ViewPager that host fragments that contain more information, and price charts.
+ */
 
 public class StockPageFragment extends Fragment {
 
@@ -54,6 +56,7 @@ public class StockPageFragment extends Fragment {
         tvTradeDate     = (TextView) rootView.findViewById(R.id.tvTradeDate);
         tvTradeTime     = (TextView) rootView.findViewById(R.id.tvTradeTime);
 
+        // Sets company name, price, etc
         tvCompany.setText(stock.getName());
         tvCompanyTicker.setText(stock.getTicker());
         tvPrice.setText(stock.getPrice());
@@ -61,27 +64,21 @@ public class StockPageFragment extends Fragment {
         tvTradeDate.setText(stock.getTradeDate());
         tvTradeTime.setText("Updated: " + stock.getTradeTime());
 
-        if (stock.getPriceChangeDirection() > 0)
-        {
-            tvPriceChange.setTextColor(Color.rgb(0, 136,0));
-        }
-        else if (stock.getPriceChangeDirection() < 0)
-        {
-            tvPriceChange.setTextColor(Color.rgb(204, 0, 0));
-        }
+        // If price change is positive, set TextView to green. Otherwise Red.
+        if (stock.getPriceChangeDirection() >= 0)
+            tvPriceChange.setTextColor(getResources().getColor(R.color.change_green));
         else
-        {
-            tvPriceChange.setTextColor(Color.BLACK);
-        }
+            tvPriceChange.setTextColor(getResources().getColor(R.color.change_red));
 
+        // Sets up the ViewPager
         mViewPager = (ViewPager) rootView.findViewById(R.id.pager);
 
         mStockInfoPagerAdapter =
                 new StockInfoPagerAdapter(getActivity().getSupportFragmentManager());
         mViewPager = (ViewPager) rootView.findViewById(R.id.pager);
         mViewPager.setAdapter(mStockInfoPagerAdapter);
-        mViewPager.setCurrentItem(1);          // Starting Page
-        mViewPager.setOffscreenPageLimit(2);   // Pages to keep loaded
+        mViewPager.setCurrentItem(1);          // Set default starting page to the 2nd item
+        mViewPager.setOffscreenPageLimit(2);   // Keep all pages loaded
 
         return rootView;
     }
@@ -94,10 +91,8 @@ public class StockPageFragment extends Fragment {
         }
 
         @Override
-        public Fragment getItem(int i)
-        {
-            switch (i)
-            {
+        public Fragment getItem(int i) {
+            switch (i) {
                 case 0:  return KeyStatsFragment.newInstance(stock);
                 case 1:  return PriceInfoFragment.newInstance(stock);
                 case 2:  return PriceChartFragment.newInstance(stock);
@@ -113,14 +108,12 @@ public class StockPageFragment extends Fragment {
         @Override
         public CharSequence getPageTitle(int position) {
 
-            switch (position)
-            {
+            switch (position) {
                 case 0:  return getResources().getString(R.string.key_statistics);
                 case 1:  return getResources().getString(R.string.price_info);
                 case 2:  return getResources().getString(R.string.charts);
                 default: return null;
             }
-
         }
     }
 

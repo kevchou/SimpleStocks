@@ -25,7 +25,6 @@ public class KeyStatsFragment extends Fragment {
     public KeyStatsFragment() {
     }
 
-
     public static KeyStatsFragment newInstance(Stock stock) {
 
         KeyStatsFragment fragment = new KeyStatsFragment();
@@ -33,7 +32,6 @@ public class KeyStatsFragment extends Fragment {
         return fragment;
 
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -22,13 +22,6 @@ public class Stock
     private String ebitda;
     private String tradeDate;
 
-    public String getTradeTime() {
-        return tradeTime;
-    }
-
-    public void setTradeTime(String tradeTime) {
-        this.tradeTime = tradeTime;
-    }
 
     private String tradeTime;
     private String name;
@@ -38,6 +31,13 @@ public class Stock
 
     private Drawable priceChart;
 
+    public String getTradeTime() {
+        return tradeTime;
+    }
+
+    public void setTradeTime(String tradeTime) {
+        this.tradeTime = tradeTime;
+    }
 
     // Handles the price change info
     public int getPriceChangeDirection() {

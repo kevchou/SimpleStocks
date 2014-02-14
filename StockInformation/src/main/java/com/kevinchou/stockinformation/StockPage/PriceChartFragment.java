@@ -18,6 +18,8 @@ import com.kevinchou.stockinformation.Stock;
 import com.kevinchou.stockinformation.YahooFinanceInfo;
 
 
+/** This fragment retrieves and displays the price chart for the current stock from Yahoo */
+
 public class PriceChartFragment extends Fragment {
 
     RelativeLayout rlPriceChartContainer;
@@ -106,6 +108,7 @@ public class PriceChartFragment extends Fragment {
             String timeInterval;
             String plotType;
 
+            // Chosen time interval
             if (rbTime5d.isChecked()) {
                 timeInterval = "5d";
             } else if (rbTime6m.isChecked()) {
@@ -118,6 +121,7 @@ public class PriceChartFragment extends Fragment {
                 timeInterval = "5d";
             }
 
+            // Plot type (bar, candle, line)
             if (rbPlotTypeBar.isChecked()) {
                 plotType = "b";
             } else if (rbPlotTypeCandle.isChecked()) {
@@ -128,14 +132,13 @@ public class PriceChartFragment extends Fragment {
                 plotType = "b";
             }
 
-
-
+            // Gets Price Chart from Yahoo
             try {
                 Drawable d = YahooFinanceInfo.getPriceChart(tick, timeInterval, plotType);
                 stock.setPriceChart(d);
             }
             catch (Exception e) {
-                Log.d("ERROR", e.toString());
+                Log.d("YAHOO_ERROR", e.toString());
             }
 
             return stock;
@@ -144,9 +147,11 @@ public class PriceChartFragment extends Fragment {
         @Override
         protected void onPostExecute(Stock stock) {
 
+            // Turns off progress view and sets price chart visible
             llChartProgress.setVisibility(View.INVISIBLE);
             ivPriceChart.setVisibility(View.VISIBLE);
 
+            // Sets the imageview to the retrieved drawable
             ivPriceChart.setImageDrawable(stock.getPriceChart());
 
         }

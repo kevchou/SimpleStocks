@@ -41,8 +41,7 @@ public class YahooFinanceInfo {
         Stock stock = new Stock();
         stock.setTicker(ticker);
 
-        try
-        {
+        try {
             URL url = new URL("http://finance.yahoo.com/d/quotes.csv?s="
                     + ticker
                     + "&f="
@@ -98,22 +97,22 @@ public class YahooFinanceInfo {
             // Name is always last, since name can contain a comma.
             stock.setName(companyData[companyData.length-1].replaceAll("\"", ""));
 
+        } catch (Exception e) {
 
-        }
-        catch (Exception e)
-        {
-            Log.d("ERROR-GETTINGDATA", e.toString());
+            Log.d("ERROR_GETTINGDATA", e.toString());
+
         }
 
         return stock;
     }
 
+    // This method will retrieve the price chart from Yahoo and returns it as a drawable
     public static Drawable getPriceChart(String ticker, String timeInterval, String plotType) {
 
         Drawable d = null;
 
-        try
-        {
+        try {
+
             URL url = new URL("http://chart.finance.yahoo.com/z?"
                     + "s=" + ticker
                     + "&t=" + timeInterval  // Time interval, {1d, 5d, 3m, 6m, 1y, 2y, 5y, my}
@@ -125,10 +124,10 @@ public class YahooFinanceInfo {
 
             InputStream content = (InputStream)url.getContent();
             d = Drawable.createFromStream(content, "src");
-        }
-        catch (Exception e)
-        {
-            Log.d("ERROR-GETTINGCHARTS", e.toString());
+        } catch (Exception e) {
+
+            Log.d("ERROR_GETTINGCHARTS", e.toString());
+
         }
 
         return d;
