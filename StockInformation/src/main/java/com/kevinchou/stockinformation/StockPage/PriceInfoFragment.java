@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
 import com.kevinchou.stockinformation.R;
 import com.kevinchou.stockinformation.Stock;
 

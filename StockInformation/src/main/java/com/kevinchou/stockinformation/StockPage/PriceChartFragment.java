@@ -26,8 +26,11 @@ public class PriceChartFragment extends Fragment {
     LinearLayout llChartProgress;
     ImageView ivPriceChart;
 
+    RadioButton rbTime1d;
     RadioButton rbTime5d;
+    RadioButton rbTime3m;
     RadioButton rbTime6m;
+    RadioButton rbTime1y;
     RadioButton rbTime5y;
     RadioButton rbTimeMax;
 
@@ -62,13 +65,20 @@ public class PriceChartFragment extends Fragment {
 
         llChartProgress = (LinearLayout) rootView.findViewById(R.id.llChartProgress);
 
+        rbTime1d = (RadioButton) rootView.findViewById(R.id.rbTime1d);
         rbTime5d = (RadioButton) rootView.findViewById(R.id.rbTime5d);
+        rbTime3m = (RadioButton) rootView.findViewById(R.id.rbTime3m);
         rbTime6m = (RadioButton) rootView.findViewById(R.id.rbTime6m);
+        rbTime1y = (RadioButton) rootView.findViewById(R.id.rbTime1y);
         rbTime5y = (RadioButton) rootView.findViewById(R.id.rbTime5y);
         rbTimeMax = (RadioButton) rootView.findViewById(R.id.rbTimeMax);
 
+
+        rbTime1d.setOnClickListener(new OnTimeIntervalRadioButtonListener());
         rbTime5d.setOnClickListener(new OnTimeIntervalRadioButtonListener());
+        rbTime3m.setOnClickListener(new OnTimeIntervalRadioButtonListener());
         rbTime6m.setOnClickListener(new OnTimeIntervalRadioButtonListener());
+        rbTime1y.setOnClickListener(new OnTimeIntervalRadioButtonListener());
         rbTime5y.setOnClickListener(new OnTimeIntervalRadioButtonListener());
         rbTimeMax.setOnClickListener(new OnTimeIntervalRadioButtonListener());
 
@@ -109,10 +119,16 @@ public class PriceChartFragment extends Fragment {
             String plotType;
 
             // Chosen time interval
-            if (rbTime5d.isChecked()) {
+            if (rbTime1d.isChecked()) {
+                timeInterval = "1d";
+            } else if (rbTime5d.isChecked()) {
                 timeInterval = "5d";
+            } else if (rbTime3m.isChecked()) {
+                timeInterval = "3m";
             } else if (rbTime6m.isChecked()) {
                 timeInterval = "6m";
+            } else if (rbTime1y.isChecked()) {
+                timeInterval = "1y";
             } else if (rbTime5y.isChecked()) {
                 timeInterval = "5y";
             } else if (rbTimeMax.isChecked()) {

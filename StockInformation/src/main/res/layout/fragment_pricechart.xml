@@ -54,6 +54,17 @@
             android:orientation="horizontal"
             android:background="@drawable/card_background">
 
+            <RadioButton
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@drawable/radiobutton_selected"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="1d"
+                android:id="@+id/rbTime1d"
+                android:button="@null"
+                android:checked="true"
+                />
 
             <RadioButton
                 style="?android:attr/buttonBarButtonStyle"
@@ -61,10 +72,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="5 days"
+                android:text="5d"
                 android:id="@+id/rbTime5d"
                 android:button="@null"
-                android:checked="true"
                  />
 
             <RadioButton
@@ -73,7 +83,20 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="6 months"
+                android:text="3m"
+                android:id="@+id/rbTime3m"
+                android:button="@null"
+                />
+
+
+
+            <RadioButton
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@drawable/radiobutton_selected"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="6m"
                 android:id="@+id/rbTime6m"
                 android:button="@null"
                 />
@@ -84,7 +107,18 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="5 years"
+                android:text="1y"
+                android:id="@+id/rbTime1y"
+                android:button="@null"
+                />
+
+            <RadioButton
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@drawable/radiobutton_selected"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="5y"
                 android:id="@+id/rbTime5y"
                 android:button="@null"
                 />
