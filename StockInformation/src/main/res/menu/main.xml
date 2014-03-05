@@ -1,11 +1,14 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.kevinchou.fundamentals.MainActivity" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/search"
-        android:title="Search Title"
-        android:icon="@android:drawable/ic_menu_search"
+        android:title="Search"
+        android:icon="@drawable/ic_action_action_search"
         android:showAsAction="collapseActionView|always"
         android:actionViewClass="android.widget.SearchView" />
+
+    <item android:id="@+id/refresh"
+        android:title="Refresh"
+        android:icon="@drawable/ic_action_navigation_refresh"
+        android:showAsAction="always"/>
 
 </menu>

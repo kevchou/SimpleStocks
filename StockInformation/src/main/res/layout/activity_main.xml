@@ -6,17 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <FrameLayout
-        android:id="@+id/fragment_ticker"
+    <LinearLayout
+        android:id="@+id/llNoInternetConnection"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        tools:layout="@layout/fragment_ticker" />
+        android:visibility="gone"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/tvNoInternetConnection"
+            android:text="No Internet Connection"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/progress_linearlayout"
-        android:layout_below="@+id/fragment_ticker"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:visibility="gone"

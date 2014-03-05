@@ -32,7 +32,11 @@ public class YahooFinanceInfo {
     final static String yExchange        = "x";
     final static String yName            = "n";
     final static String yDaysRange       = "m0";
-    final static String yAvgDailyVolumne = "a2";
+    final static String yYearRange       = "w0";
+    final static String yAvgDailyVolume  = "a2";
+    final static String yVolume          = "v0";
+
+
 
     public static Stock getStockData(String ticker) {
 
@@ -42,6 +46,8 @@ public class YahooFinanceInfo {
         stock.setTicker(ticker);
 
         try {
+
+
             URL url = new URL("http://finance.yahoo.com/d/quotes.csv?s="
                     + ticker
                     + "&f="
@@ -62,19 +68,23 @@ public class YahooFinanceInfo {
                     + yTradeDate
                     + yTradeTime
                     + yExchange
-                    + yName);
+                    + yAvgDailyVolume
+                    + yVolume
+                    + yDaysRange
+                    + yYearRange
+                    + yName
+            );
             URLConnection yc = url.openConnection();
             BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
 
-            // Split CSV by comma and quotes
+// Split CSV by comma and quotes
             companyData = in.readLine().split(",");
             in.close();
 
-
-            // Convert price string to float, then round to 2 digits.
+// Convert price string to float, then round to 2 digits.
             stock.setPrice(String.format("$%.2f", Float.parseFloat(companyData[0])));
 
-            // Separate actual change and percent change
+// Separate actual change and percent change
             String[] priceChange = companyData[1].replaceAll("\"", "").split(" - ");
             stock.setPriceChange(priceChange[0] + " (" + priceChange[1] + ")");
 
@@ -93,7 +103,10 @@ public class YahooFinanceInfo {
             stock.setTradeDate(companyData[14].replaceAll("\"", ""));
             stock.setTradeTime(companyData[15].replaceAll("\"", ""));
             stock.setExchange(companyData[16].replaceAll("\"", ""));
-
+            stock.setAvgDailyVolume(companyData[17]);
+            stock.setVolume(companyData[18]);
+            stock.setDaysRange(companyData[19].replaceAll("\"", ""));
+            stock.setYearRange(companyData[20].replaceAll("\"", ""));
             // Name is always last, since name can contain a comma.
             stock.setName(companyData[companyData.length-1].replaceAll("\"", ""));
 

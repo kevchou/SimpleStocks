@@ -22,6 +22,44 @@ public class Stock
     private String ebitda;
     private String tradeDate;
 
+    public String getDaysRange() {
+        return daysRange;
+    }
+
+    public void setDaysRange(String daysRange) {
+        this.daysRange = daysRange;
+    }
+
+    public String getYearRange() {
+        return yearRange;
+    }
+
+    public void setYearRange(String yearRange) {
+        this.yearRange = yearRange;
+    }
+
+    private String daysRange;
+    private String yearRange;
+
+
+    public String getAvgDailyVolume() {
+        return avgDailyVolume;
+    }
+
+    public void setAvgDailyVolume(String avgDailyVolume) {
+        this.avgDailyVolume = avgDailyVolume;
+    }
+
+    public String getVolume() {
+        return volume;
+    }
+
+    public void setVolume(String volume) {
+        this.volume = volume;
+    }
+
+    private String avgDailyVolume;
+    private String volume;
 
     private String tradeTime;
     private String name;
@@ -41,18 +79,23 @@ public class Stock
 
     // Handles the price change info
     public int getPriceChangeDirection() {
-        String d = priceChange.substring(0, 1);
 
-        if (d.equals("-"))
-        {
-            return -1;
-        }
-        else if (d.equals("+"))
-        {
-            return 1;
-        }
+        if(priceChange.length() > 0) {
 
+            String d = priceChange.substring(0, 1);
+
+            if (d.equals("-"))
+            {
+                return -1;
+            }
+            else if (d.equals("+"))
+            {
+                return 1;
+            }
+
+        }
         return 0;
+
     }
 
 
@@ -211,4 +254,6 @@ public class Stock
     public void setExchange(String exchange) {
         this.exchange = exchange;
     }
+
+
 }

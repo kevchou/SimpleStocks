@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.kevinchou.stockinformation.StockPage.KeyStatsFragment;
+import com.kevinchou.stockinformation.StockPage.KeyStatsFragment2;
 import com.kevinchou.stockinformation.StockPage.PriceChartFragment;
 import com.kevinchou.stockinformation.StockPage.PriceInfoFragment;
 
@@ -93,7 +93,7 @@ public class StockPageFragment extends Fragment {
         @Override
         public Fragment getItem(int i) {
             switch (i) {
-                case 0:  return KeyStatsFragment.newInstance(stock);
+                case 0:  return KeyStatsFragment2.newInstance(stock);
                 case 1:  return PriceInfoFragment.newInstance(stock);
                 case 2:  return PriceChartFragment.newInstance(stock);
                 default:  return PriceInfoFragment.newInstance(stock);
