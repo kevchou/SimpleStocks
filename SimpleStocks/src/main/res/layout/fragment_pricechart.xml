@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/google_now_background">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rlPriceChartContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/card_background"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="2dp">
+
+            <LinearLayout
+                android:layout_centerInParent="true"
+                android:id="@+id/llChartProgress"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:visibility="gone">
+
+                <ProgressBar
+                    android:id="@+id/marker_progress"
+                    android:indeterminate="true"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    style="?android:attr/progressBarStyleLarge" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivPriceChart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"/>
+        </RelativeLayout>
+
+        <RadioGroup
+            style="?android:attr/buttonBarStyle"
+            android:showDividers="middle"
+            android:divider="?android:dividerVertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal"
+            android:background="@drawable/card_background">
+
+            <RadioButton
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@drawable/radiobutton_selected"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="1d"
+                android:id="@+id/rbTime1d"
+                android:button="@null"
+                android:checked="true"
+                />
+
+            <RadioButton
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@drawable/radiobutton_selected"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="5d"
+                android:id="@+id/rbTime5d"
+                android:button="@null"
+                 />
+
+            <RadioButton
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@drawable/radiobutton_selected"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="3m"
+                android:id="@+id/rbTime3m"
+                android:button="@null"
+                />
+
+
+
+            <RadioButton
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@drawable/radiobutton_selected"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="6m"
+                android:id="@+id/rbTime6m"
+                android:button="@null"
+                />
+
+            <RadioButton
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@drawable/radiobutton_selected"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="1y"
+                android:id="@+id/rbTime1y"
+                android:button="@null"
+                />
+
+            <RadioButton
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@drawable/radiobutton_selected"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="5y"
+                android:id="@+id/rbTime5y"
+                android:button="@null"
+                />
+
+            <RadioButton
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@drawable/radiobutton_selected"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Max"
+                android:id="@+id/rbTimeMax"
+                android:button="@null"
+                />
+        </RadioGroup>
+
+
+        <RadioGroup
+            style="?android:attr/buttonBarStyle"
+            android:showDividers="middle"
+            android:divider="?android:dividerVertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal"
+            android:background="@drawable/card_background">
+
+
+            <RadioButton
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@drawable/radiobutton_selected"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Line"
+                android:id="@+id/rbPlotTypeLine"
+                android:button="@null"
+                android:checked="true"
+                />
+
+            <RadioButton
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@drawable/radiobutton_selected"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Bar"
+                android:id="@+id/rbPlotTypeBar"
+                android:button="@null"
+                />
+
+            <RadioButton
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@drawable/radiobutton_selected"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Candle"
+                android:id="@+id/rbPlotTypeCandle"
+                android:button="@null"
+                />
+        </RadioGroup>
+
+    </LinearLayout>
+
+</FrameLayout>

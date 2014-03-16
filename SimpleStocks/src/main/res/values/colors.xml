@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#FFFFFF</color>
+
+    <color name="google_now_background">#E5E5E5</color>
+
+    <color name="change_red">#880000</color>
+    <color name="change_green">#00CC00</color>
+</resources>
