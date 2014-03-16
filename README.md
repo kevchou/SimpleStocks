@@ -1,4 +1,4 @@
-StockInformation
+Simple Stocks
 ================
 
 Android finance app that pulls information using the Yahoo API.
