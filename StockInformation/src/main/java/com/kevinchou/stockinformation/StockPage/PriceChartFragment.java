@@ -86,7 +86,7 @@ public class PriceChartFragment extends Fragment {
         rbPlotTypeBar = (RadioButton) rootView.findViewById(R.id.rbPlotTypeBar);
         rbPlotTypeCandle = (RadioButton) rootView.findViewById(R.id.rbPlotTypeCandle);
 
-        rbTime5d.setOnClickListener(new OnTimeIntervalRadioButtonListener());
+        rbPlotTypeLine.setOnClickListener(new OnTimeIntervalRadioButtonListener());
         rbPlotTypeBar.setOnClickListener(new OnTimeIntervalRadioButtonListener());
         rbPlotTypeCandle.setOnClickListener(new OnTimeIntervalRadioButtonListener());
 

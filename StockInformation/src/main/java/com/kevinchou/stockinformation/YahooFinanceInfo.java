@@ -8,7 +8,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.HashMap;
 
 public class YahooFinanceInfo {
 
@@ -107,6 +106,7 @@ public class YahooFinanceInfo {
             stock.setVolume(companyData[18]);
             stock.setDaysRange(companyData[19].replaceAll("\"", ""));
             stock.setYearRange(companyData[20].replaceAll("\"", ""));
+
             // Name is always last, since name can contain a comma.
             stock.setName(companyData[companyData.length-1].replaceAll("\"", ""));
 

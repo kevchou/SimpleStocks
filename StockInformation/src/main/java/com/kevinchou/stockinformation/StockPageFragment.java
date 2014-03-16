@@ -1,6 +1,5 @@
 package com.kevinchou.stockinformation;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,13 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.kevinchou.stockinformation.StockPage.KeyStatsFragment2;
-import com.kevinchou.stockinformation.StockPage.PriceChartFragment;
 import com.kevinchou.stockinformation.StockPage.PriceInfoFragment;
+import com.kevinchou.stockinformation.StockPage.PriceChartFragment;
 
-/** This is the main stock page. Displays company name, price, and price change. Also uses a
- * ViewPager that host fragments that contain more information, and price charts.
- */
 
 public class StockPageFragment extends Fragment {
 
@@ -77,7 +72,7 @@ public class StockPageFragment extends Fragment {
                 new StockInfoPagerAdapter(getActivity().getSupportFragmentManager());
         mViewPager = (ViewPager) rootView.findViewById(R.id.pager);
         mViewPager.setAdapter(mStockInfoPagerAdapter);
-        mViewPager.setCurrentItem(1);          // Set default starting page to the 2nd item
+        mViewPager.setCurrentItem(0);          // Set default starting page to the 1st item
         mViewPager.setOffscreenPageLimit(2);   // Keep all pages loaded
 
         return rootView;
@@ -93,26 +88,26 @@ public class StockPageFragment extends Fragment {
         @Override
         public Fragment getItem(int i) {
             switch (i) {
-                case 0:  return KeyStatsFragment2.newInstance(stock);
-                case 1:  return PriceInfoFragment.newInstance(stock);
-                case 2:  return PriceChartFragment.newInstance(stock);
+                case 0:  return PriceInfoFragment.newInstance(stock);
+                case 1:  return PriceChartFragment.newInstance(stock);
+
                 default:  return PriceInfoFragment.newInstance(stock);
             }
         }
 
         @Override
         public int getCount() {
-            return 3;
+            return 2;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
 
             switch (position) {
-                case 0:  return getResources().getString(R.string.key_statistics);
-                case 1:  return getResources().getString(R.string.price_info);
-                case 2:  return getResources().getString(R.string.charts);
-                default: return null;
+                case 0:  return getResources().getString(R.string.price_info);
+                case 1:  return getResources().getString(R.string.charts);
+
+                default: return "What";
             }
         }
     }
